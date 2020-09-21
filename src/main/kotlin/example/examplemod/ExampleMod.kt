@@ -37,7 +37,7 @@ object ExampleMod {
         ModBlocks.REGISTRY.register(MOD_BUS)
 
         // usage of the KotlinEventBus
-        MOD_BUS.addGenericListener(::registerBlocks)
+        MOD_BUS.addGenericListener<RegistryEvent.Register<Block>, Block>(::registerBlocks)
         MOD_BUS.addListener(::onClientSetup)
         FORGE_BUS.addListener(::onServerAboutToStart)
     }
